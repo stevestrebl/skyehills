@@ -156,16 +156,120 @@
       </div>
     </section>
 
+    <!-- Timeline and About -->
+    <section class="py-8 px-4 bg-white border-y border-slate-200">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+          <!-- Timeline - Left side on desktop -->
+          <div class="flex-1 lg:order-1">
+            <h2 class="text-2xl font-semibold mb-6 text-center lg:text-left">Timeline</h2>
+            
+            <div class="relative pl-2">
+              <!-- Timeline line -->
+              <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-300"></div>
+              
+              <div class="space-y-8">
+                <!-- Timeline item 1 -->
+                <div class="relative pl-10">
+                  <div class="absolute left-4 w-8 h-8 rounded-full bg-emerald-600 border-4 border-white shadow-md z-10 flex items-center justify-center transform -translate-x-1/2">
+                    <div class="w-2 h-2 rounded-full bg-white"></div>
+                  </div>
+                  <div>
+                    <div class="text-sm font-semibold text-emerald-700 mb-1">September 7, 2025</div>
+                    <p class="text-slate-700">
+                      Initial inquiry submitted to the management company regarding requirements for a wall-mounted trellis. Management clarified that current guidelines prohibit attachments to perimeter walls.
+                    </p>
+                  </div>
+                </div>
 
-    <!-- About -->
-    <section class="py-8 px-4">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-2xl font-semibold mb-3">Who's behind this?</h2>
-        <p class="text-slate-700 mb-3">
-          This initiative is led by Steve, a Skye Hills homeowner (Tribute), together with a
-          growing group of neighbors. We are independent from the HOA and management
-          company, but we want to work <em>with</em> them, not against them. This initiative is necessary to show the Board that more than just a few people want this change.
-        </p>
+                <!-- Timeline item 2 -->
+                <div class="relative pl-10">
+                  <div class="absolute left-4 w-8 h-8 rounded-full bg-emerald-600 border-4 border-white shadow-md z-10 flex items-center justify-center transform -translate-x-1/2">
+                    <div class="w-2 h-2 rounded-full bg-white"></div>
+                  </div>
+                  <div>
+                    <div class="text-sm font-semibold text-emerald-700 mb-1">September 10, 2025</div>
+                    <p class="text-slate-700">
+                      After speaking with several neighbors, a written proposal to amend the design guidelines was submitted to the HOA Board via the management company.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Timeline item 3 -->
+                <div class="relative pl-10">
+                  <div class="absolute left-4 w-8 h-8 rounded-full bg-emerald-600 border-4 border-white shadow-md z-10 flex items-center justify-center transform -translate-x-1/2">
+                    <div class="w-2 h-2 rounded-full bg-white"></div>
+                  </div>
+                  <div>
+                    <div class="text-sm font-semibold text-emerald-700 mb-1">September 16, 2025</div>
+                    <p class="text-slate-700">
+                      Management company advised that proposals can only be addressed during Open Forum at regularly scheduled Board meetings. A request was submitted to have the proposal placed on the next meeting agenda.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Timeline item 4 -->
+                <div class="relative pl-10">
+                  <div class="absolute left-4 w-8 h-8 rounded-full bg-emerald-600 border-4 border-white shadow-md z-10 flex items-center justify-center transform -translate-x-1/2">
+                    <div class="w-2 h-2 rounded-full bg-white"></div>
+                  </div>
+                  <div>
+                    <div class="text-sm font-semibold text-emerald-700 mb-1">October 27, 2025</div>
+                    <p class="text-slate-700">
+                      The proposal was presented during Open Forum at the Board meeting. It was not included on the meeting agenda. No discussion occurred at that time.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Timeline item 5 -->
+                <div class="relative pl-10">
+                  <div class="absolute left-4 w-8 h-8 rounded-full bg-emerald-600 border-4 border-white shadow-md z-10 flex items-center justify-center transform -translate-x-1/2">
+                    <div class="w-2 h-2 rounded-full bg-white"></div>
+                  </div>
+                  <div>
+                    <div class="text-sm font-semibold text-emerald-700 mb-1">November 21, 2025</div>
+                    <p class="text-slate-700">
+                      Following a request for an update, management informed that the Board does not currently wish to move the idea forward.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Timeline item 6 -->
+                <div class="relative pl-10">
+                  <div class="absolute left-4 w-8 h-8 rounded-full bg-emerald-600 border-4 border-white shadow-md z-10 flex items-center justify-center transform -translate-x-1/2 animate-pulse">
+                    <div class="w-2 h-2 rounded-full bg-white"></div>
+                  </div>
+                  <div>
+                    <div class="text-sm font-semibold text-emerald-700 mb-1">November 22, 2025</div>
+                    <p class="text-slate-700">
+                      Petition initiative & website launched to gather homeowner support and demonstrate community interest in the proposed guideline changes.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- About - Right side on desktop -->
+          <div class="flex-1 lg:order-2">
+            <h2 class="text-2xl font-semibold mb-4 text-center lg:text-left">Who's behind this?</h2>
+            
+            <!-- Picture -->
+            <div class="mb-4 flex justify-center lg:justify-start">
+              <img
+                src="/steve.jpg"
+                alt="Steve, Skye Hills homeowner"
+                class="w-48 h-48 rounded-full object-cover border-4 border-emerald-600 shadow-md"
+              />
+            </div>
+            
+            <p class="text-slate-700 mb-3">
+              This initiative is led by Steve, a Skye Hills homeowner (Tribute), together with a
+              growing group of neighbors. We are independent from the HOA and management
+              company, but we want to work <em>with</em> them, not against them. This initiative is necessary to show the Board that more than just a few people want this change.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
