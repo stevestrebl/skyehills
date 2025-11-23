@@ -88,7 +88,7 @@
               class="block relative group w-full"
             >
               <img
-                src="/wall-trellis.jpeg"
+                src="/wall-trellis.png"
                 alt="Wall mounted trellis example - click to enlarge"
                 class="w-full max-w-[280px] mx-auto md:mx-0 md:w-64 rounded-lg shadow-md border border-slate-200 transition-transform duration-200 group-hover:scale-105 group-hover:shadow-lg cursor-pointer"
               />
@@ -458,7 +458,7 @@
       class="relative max-w-7xl max-h-full"
     >
       <img
-        src="/wall-trellis.jpeg"
+        src="/wall-trellis.png"
         alt="Wall mounted trellis example - enlarged view"
         class="max-w-full max-h-[90vh] rounded-lg shadow-2xl"
       />
