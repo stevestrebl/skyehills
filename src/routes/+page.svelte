@@ -300,7 +300,7 @@
             
             <div class="relative pl-2">
               <!-- Timeline line -->
-              <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-300"></div>
+              <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-[repeating-linear-gradient(to_bottom,_#cbd5e1_0,_#cbd5e1_6px,_transparent_6px,_transparent_12px)]"></div>
               
               <div class="space-y-8">
                 <!-- Timeline item 1 -->
