@@ -300,7 +300,7 @@
             
             <div class="relative pl-2">
               <!-- Timeline line -->
-              <div class="absolute left-6 top-0 bottom-0 w-1" style="border-left: 2px dashed #cbd5e1; left: 24px; right: auto; top: 0; bottom: 0; width: 0;"></div>
+              <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-300"></div>
               
               <div class="space-y-8">
                 <!-- Timeline item 1 -->
