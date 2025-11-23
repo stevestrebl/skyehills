@@ -1,9 +1,24 @@
 <script lang="ts">
   import Footer from '$lib/Footer.svelte';
+  import { onMount } from 'svelte';
 
   let imageModalOpen = $state(false);
-  // TODO: Replace with actual count from your backend/database
-  let neighborCount = $state(42);
+  let neighborCount = $state(0);
+
+  async function fetchNeighborCount() {
+    try {
+      const response = await fetch('/api/count');
+      const data = await response.json();
+      neighborCount = data.count || 0;
+    } catch (error) {
+      console.error('Error fetching neighbor count:', error);
+      // Keep default of 0 on error
+    }
+  }
+
+  onMount(() => {
+    fetchNeighborCount();
+  });
 
   function openImageModal() {
     imageModalOpen = true;
