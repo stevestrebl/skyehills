@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Footer from '$lib/Footer.svelte';
+
   let imageModalOpen = $state(false);
   // TODO: Replace with actual count from your backend/database
   let neighborCount = $state(42);
@@ -59,7 +61,8 @@
         <!-- Intro text and image side by side on desktop, stacked on mobile -->
         <div class="flex flex-col md:flex-row gap-6 mb-3 items-start">
           <p class="text-base text-slate-700 flex-1 md:max-w-lg">
-            Unfortunately, under the current design guidelines, it's not allowed, even if it's in your backyard. This means you can't have a wall mounted trellis. We petitioned the Board to change the guidelines, so what you see on the picture becomes possible:
+            
+              Unfortunately, <span class="bg-emerald-100 px-1 py-0.5 rounded">under the current design guidelines, it's not allowed,</span> even if it's in your own backyard. If you want a wall mounted trellis, you're out of luck. We petitioned the Board to change the guidelines, so what you see on the picture becomes possible:
           </p>
           
           <!-- Image - smaller, aligned right on desktop, clickable to enlarge -->
@@ -108,37 +111,168 @@
           
           
           <p class="text-slate-700 mb-3">
-            We need your help to get this proposal on the agenda and passed. Please sign the petition below.
+            We need your help to get this proposal on the HOA Board meeting agenda and passed. Please sign the petition below.
           </p>
 
-          <div class="mt-4 max-w-md mx-auto bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
-            <!-- TODO: Replace this with your Mailchimp embed form -->
-            <!-- Go to Mailchimp → Audience → Signup forms → Embedded forms,
-                 then paste the generated <form> code here. -->
+          <div class="mt-4 max-w-md mx-auto bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
             <form
-              action="YOUR_MAILCHIMP_POST_URL_HERE"
+              action="https://minefieldnavigator.us18.list-manage.com/subscribe/post?u=6820b35735a99d7a02b851709&amp;id=0d6d2e67e7&amp;f_id=0057a5e6f0"
               method="post"
-              target="_blank"
+              id="mc-embedded-subscribe-form"
+              name="mc-embedded-subscribe-form"
+              target="_self"
               novalidate
-              class="flex flex-col gap-3"
+              class="flex flex-col gap-4"
             >
-              <label class="text-sm font-medium text-slate-900 flex flex-col gap-1">
-                Email address
-                <input
-                  type="email"
-                  name="EMAIL"
-                  required
-                  placeholder="you@example.com"
-                  class="rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20"
-                />
-              </label>
-              <!-- Mailchimp may require hidden fields; include them from their embed code -->
-              <button
-                type="submit"
-                class="self-start border-none rounded-lg px-4 py-2 bg-emerald-600 text-white text-sm font-medium cursor-pointer hover:bg-emerald-700 transition-colors"
-              >
-                Join the petition
-              </button>
+              <div id="mc_embed_signup_scroll">
+                <p class="text-xs text-slate-500 mb-4">
+                  <span class="text-red-500">*</span> indicates required
+                </p>
+
+                <!-- Email -->
+                <div class="mb-4">
+                  <label for="mce-EMAIL" class="block text-sm font-medium text-slate-900 mb-1">
+                    Email Address <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="EMAIL"
+                    id="mce-EMAIL"
+                    required
+                    class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20"
+                  />
+                </div>
+
+                <!-- First Name and Last Name on one line -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <label for="mce-FNAME" class="block text-sm font-medium text-slate-900 mb-1">
+                      First Name <span class="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="FNAME"
+                      id="mce-FNAME"
+                      required
+                      class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20"
+                    />
+                  </div>
+                  <div>
+                    <label for="mce-LNAME" class="block text-sm font-medium text-slate-900 mb-1">
+                      Last Name <span class="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="LNAME"
+                      id="mce-LNAME"
+                      required
+                      class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20"
+                    />
+                  </div>
+                </div>
+
+                <!-- Address -->
+                <div class="mb-4">
+                  <label for="mce-ADDRESS-addr1" class="block text-sm font-medium text-slate-900 mb-1">
+                    Address <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    maxlength="70"
+                    name="ADDRESS[addr1]"
+                    id="mce-ADDRESS-addr1"
+                    required
+                    class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20"
+                  />
+                </div>
+
+                <!-- Address Line 2 -->
+                <div class="mb-4">
+                  <label for="mce-ADDRESS-addr2" class="block text-sm font-medium text-slate-900 mb-1">
+                    Address Line 2
+                  </label>
+                  <input
+                    type="text"
+                    maxlength="70"
+                    name="ADDRESS[addr2]"
+                    id="mce-ADDRESS-addr2"
+                    class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20"
+                  />
+                </div>
+
+                <!-- City, State, Zip Row -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                  <div>
+                    <label for="mce-ADDRESS-city" class="block text-sm font-medium text-slate-900 mb-1">
+                      City <span class="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      maxlength="40"
+                      name="ADDRESS[city]"
+                      id="mce-ADDRESS-city"
+                      required
+                      value="Las Vegas"
+                      class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20"
+                    />
+                  </div>
+                  <div>
+                    <label for="mce-ADDRESS-state" class="block text-sm font-medium text-slate-900 mb-1">
+                      State <span class="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      maxlength="20"
+                      name="ADDRESS[state]"
+                      id="mce-ADDRESS-state"
+                      value="NV"
+                      required
+                      class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20"
+                    />
+                  </div>
+                  <div>
+                    <label for="mce-ADDRESS-zip" class="block text-sm font-medium text-slate-900 mb-1">
+                      Zip Code <span class="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      maxlength="10"
+                      name="ADDRESS[zip]"
+                      id="mce-ADDRESS-zip"
+                      value="89166"
+                      required
+                      class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20"
+                    />
+                  </div>
+                </div>
+
+                <!-- Hidden fields -->
+                <div hidden>
+                  <input type="hidden" name="tags" value="3038186" />
+                  <input type="hidden" name="ADDRESS[country]" value="USA" />
+                </div>
+
+                <!-- Response messages -->
+                <div id="mce-responses" class="clear">
+                  <div class="response text-sm text-red-600 mb-2" id="mce-error-response" style="display: none;"></div>
+                  <div class="response text-sm text-emerald-600 mb-2" id="mce-success-response" style="display: none;"></div>
+                </div>
+
+                <!-- Bot protection -->
+                <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                  <input type="text" name="b_6820b35735a99d7a02b851709_0d6d2e67e7" tabindex="-1" value="" />
+                </div>
+
+                <!-- Submit button -->
+                <button
+                  type="submit"
+                  name="subscribe"
+                  id="mc-embedded-subscribe"
+                  class="w-full border-none rounded-lg px-4 py-2 bg-emerald-600 text-white text-sm font-medium cursor-pointer hover:bg-emerald-700 transition-colors"
+                >
+                  Sign the Petition
+                </button>
+              </div>
             </form>
           </div>
 
@@ -252,12 +386,12 @@
 
           <!-- About - Right side on desktop -->
           <div class="flex-1 lg:order-2">
-            <h2 class="text-2xl font-semibold mb-4 text-center lg:text-left">Who's behind this?</h2>
+            <h2 class="text-2xl font-semibold mb-4 text-center lg:text-left">Who's behind the initiative?</h2>
             
             <!-- Picture -->
             <div class="mb-4 flex justify-center lg:justify-start">
               <img
-                src="/steve.jpg"
+                src="/steve.jpeg"
                 alt="Steve, Skye Hills homeowner"
                 class="w-48 h-48 rounded-full object-cover border-4 border-emerald-600 shadow-md"
               />
@@ -265,8 +399,7 @@
             
             <p class="text-slate-700 mb-3">
               This initiative is led by Steve, a Skye Hills homeowner (Tribute), together with a
-              growing group of neighbors. We are independent from the HOA and management
-              company, but we want to work <em>with</em> them, not against them. This initiative is necessary to show the Board that more than just a few people want this change.
+              growing group of neighbors. Our goal is to work constructively <em>with</em> the Board by presenting actionable, homeowner-supported ideas. <span class="bg-emerald-100 px-1 py-0.5 rounded">That's why we've put together a proposal that addresses relevant concerns. It is ready for review. Refinements are welcome.</span> Our aim is to show that many residents value a bit more flexibility in designing their own backyard spaces.
             </p>
           </div>
         </div>
@@ -276,12 +409,7 @@
 
   </main>
 
-  <footer class="bg-white border-t border-slate-200">
-    <div class="max-w-4xl mx-auto px-4 py-3 flex flex-wrap justify-between gap-2 text-xs text-slate-500">
-      <span>Skye Hills Neighbors – homeowner-led and independent.</span>
-      <span>This site is not affiliated with the HOA or management company.</span>
-    </div>
-  </footer>
+  <Footer />
 </div>
 
 <!-- Image Modal/Lightbox -->
