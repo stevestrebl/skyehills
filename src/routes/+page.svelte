@@ -1,9 +1,18 @@
 <script lang="ts">
   import Footer from '$lib/Footer.svelte';
   import { onMount } from 'svelte';
+  import { page } from '$app/stores';
 
   let imageModalOpen = $state(false);
   let neighborCount = $state(0);
+  
+  // Construct absolute URL for Open Graph image
+  const baseUrl = $derived(
+    typeof window !== 'undefined' 
+      ? `${window.location.protocol}//${window.location.host}`
+      : 'https://skyehills.org' // Fallback for SSR - update with your domain
+  );
+  const ogImage = $derived(`${baseUrl}/wall-trellis.jpeg`);
 
   async function fetchNeighborCount() {
     try {
@@ -51,6 +60,22 @@
     name="description"
     content="Skye Hills Neighbors – a calm, practical voice for homeowners in Skye Hills."
   />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={baseUrl} />
+  <meta property="og:title" content="Skye Hills Neighbors" />
+  <meta property="og:description" content="A calm, practical voice for homeowners in Skye Hills. Support the petition to change HOA design guidelines." />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content={baseUrl} />
+  <meta name="twitter:title" content="Skye Hills Neighbors" />
+  <meta name="twitter:description" content="A calm, practical voice for homeowners in Skye Hills. Support the petition to change HOA design guidelines." />
+  <meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
 <div class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
