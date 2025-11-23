@@ -12,7 +12,7 @@
       ? `${window.location.protocol}//${window.location.host}`
       : 'https://skyehills.org' // Fallback for SSR - update with your domain
   );
-  const ogImage = $derived(`${baseUrl}/wall-trellis.jpeg`);
+  const ogImage = $derived(`${baseUrl}/wall-trellis.png`);
 
   async function fetchNeighborCount() {
     try {
