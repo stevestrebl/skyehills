@@ -374,7 +374,7 @@
 
     <!-- Timeline and About -->
     <section class="py-8 px-4 bg-white border-y border-slate-200">
-      <div class="max-w-6xl mx-auto">
+      <div class="max-w-4xl mx-auto">
         <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
           <!-- Timeline - Left side on desktop -->
           <div class="flex-1 lg:order-1">
