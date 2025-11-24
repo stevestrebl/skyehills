@@ -5,6 +5,7 @@
 
   let imageModalOpen = $state(false);
   let neighborCount = $state(0);
+  let showCTAButton = $state(true);
   
   // Construct absolute URL for Open Graph image
   const baseUrl = $derived(
@@ -25,8 +26,27 @@
     }
   }
 
+  function checkScrollPosition() {
+    if (typeof window === 'undefined') return;
+    
+    const petitionSection = document.getElementById('petition');
+    if (!petitionSection) return;
+    
+    const rect = petitionSection.getBoundingClientRect();
+    // Hide button if petition section is in view or above the viewport
+    showCTAButton = rect.top > window.innerHeight * 0.3;
+  }
+
   onMount(() => {
     fetchNeighborCount();
+    
+    // Check scroll position on mount and scroll events
+    checkScrollPosition();
+    window.addEventListener('scroll', checkScrollPosition);
+    
+    return () => {
+      window.removeEventListener('scroll', checkScrollPosition);
+    };
   });
 
   function openImageModal() {
@@ -137,6 +157,7 @@
         <div class="max-w-2xl mx-auto text-center md:text-left">
           <div class="flex flex-col md:flex-row gap-3 md:items-center">
             <!-- Desktop CTA Button - left of proposal link -->
+            {#if showCTAButton}
             <button
               onclick={scrollToPetition}
               class="hidden md:inline-flex items-center gap-2 bg-emerald-600 text-white font-semibold px-6 py-3 rounded-lg shadow-sm hover:bg-emerald-700 transition-all duration-200"
@@ -146,6 +167,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </button>
+            {/if}
             
             <a
               href="https://docs.google.com/document/d/1UVLoxvLzVknKMQ9ejxQrhaXfGrv2vULIoKHw1Jjlt8s/edit?usp=sharing"
@@ -473,6 +495,7 @@
 </div>
 
 <!-- Floating Mobile CTA Button -->
+{#if showCTAButton}
 <button
   onclick={scrollToPetition}
   class="fixed bottom-6 right-6 md:hidden z-40 bg-emerald-600 text-white px-5 py-3 rounded-full shadow-lg hover:bg-emerald-700 transition-all duration-200 flex items-center gap-2 animate-bounce"
@@ -483,6 +506,7 @@
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
   </svg>
 </button>
+{/if}
 
 <!-- Image Modal/Lightbox -->
 {#if imageModalOpen}
