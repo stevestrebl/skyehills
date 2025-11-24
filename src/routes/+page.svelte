@@ -37,6 +37,46 @@
     showCTAButton = rect.top > window.innerHeight * 0.3;
   }
 
+  function setupMailchimpListener() {
+    if (typeof window === 'undefined') return () => {};
+    
+    // Listen for Mailchimp success response
+    const checkMailchimpSuccess = () => {
+      const successResponse = document.getElementById('mce-success-response');
+      if (successResponse && successResponse.style.display !== 'none') {
+        // Form was submitted successfully, refresh count after a delay
+        setTimeout(() => {
+          fetchNeighborCount();
+        }, 2000); // Wait 2 seconds for Mailchimp to process
+      }
+    };
+    
+    // Check periodically for success message
+    const interval = setInterval(() => {
+      checkMailchimpSuccess();
+    }, 500);
+    
+    // Also listen for form submission events
+    const form = document.getElementById('mc-embedded-subscribe-form');
+    if (form) {
+      const handleSubmit = () => {
+        // Refresh count after form submission with delay
+        setTimeout(() => {
+          fetchNeighborCount();
+        }, 3000); // Wait 3 seconds for Mailchimp to process
+      };
+      
+      form.addEventListener('submit', handleSubmit);
+      
+      return () => {
+        clearInterval(interval);
+        form.removeEventListener('submit', handleSubmit);
+      };
+    }
+    
+    return () => clearInterval(interval);
+  }
+
   onMount(() => {
     fetchNeighborCount();
     
@@ -44,8 +84,18 @@
     checkScrollPosition();
     window.addEventListener('scroll', checkScrollPosition);
     
+    // Setup Mailchimp form listener
+    const cleanupMailchimp = setupMailchimpListener();
+    
+    // Poll for updates every 30 seconds to keep count fresh
+    const pollInterval = setInterval(() => {
+      fetchNeighborCount();
+    }, 30000);
+    
     return () => {
       window.removeEventListener('scroll', checkScrollPosition);
+      cleanupMailchimp();
+      clearInterval(pollInterval);
     };
   });
 
