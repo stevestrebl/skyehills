@@ -50,6 +50,13 @@
       closeImageModal();
     }
   }
+
+  function scrollToPetition() {
+    const petitionSection = document.getElementById('petition');
+    if (petitionSection) {
+      petitionSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 </script>
 
 <svelte:window onkeydown={handleKeydown} />
@@ -128,30 +135,43 @@
 
         <!-- Proposal Link - right under the paragraph/image section -->
         <div class="max-w-2xl mx-auto text-center md:text-left">
-          <a
-            href="https://docs.google.com/document/d/1UVLoxvLzVknKMQ9ejxQrhaXfGrv2vULIoKHw1Jjlt8s/edit?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 bg-white border-2 border-emerald-600 text-emerald-700 font-semibold px-6 py-3 rounded-lg shadow-sm hover:bg-emerald-50 hover:shadow-md transition-all duration-200"
-          >
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-            Read the full proposal
-          </a>
+          <div class="flex flex-col md:flex-row gap-3 md:items-center">
+            <!-- Desktop CTA Button - left of proposal link -->
+            <button
+              onclick={scrollToPetition}
+              class="hidden md:inline-flex items-center gap-2 bg-emerald-600 text-white font-semibold px-6 py-3 rounded-lg shadow-sm hover:bg-emerald-700 transition-all duration-200"
+            >
+              <span>Yes! Join the petition</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </button>
+            
+            <a
+              href="https://docs.google.com/document/d/1UVLoxvLzVknKMQ9ejxQrhaXfGrv2vULIoKHw1Jjlt8s/edit?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-white border-2 border-emerald-600 text-emerald-700 font-semibold px-6 py-3 rounded-lg shadow-sm hover:bg-emerald-50 hover:shadow-md transition-all duration-200"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Read the full proposal
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Join -->
-    <section class="py-8 px-4 bg-white border-y border-slate-200">
+    <section id="petition" class="py-8 px-4 bg-white border-y border-slate-200">
       <div class="max-w-4xl mx-auto">
         <div class="text-center">
-          <h2 class="text-2xl font-semibold mb-3">Support the petition</h2>
+          <h2 class="text-2xl font-semibold mb-3">Support this change</h2>
           
           
           <p class="text-slate-700 mb-3">
-            We need your help to get this proposal on the HOA Board meeting agenda and passed. Please sign the petition below.
+            We need your help to get this proposal on the HOA Board meeting agenda and passed. Please fill out your details and join the petition below.
           </p>
 
           <div class="mt-4 max-w-md mx-auto bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
@@ -310,7 +330,7 @@
                   id="mc-embedded-subscribe"
                   class="w-full border-none rounded-lg px-4 py-2 bg-emerald-600 text-white text-sm font-medium cursor-pointer hover:bg-emerald-700 transition-colors"
                 >
-                  Sign the Petition
+                  Join the petition
                 </button>
               </div>
             </form>
@@ -451,6 +471,18 @@
 
   <Footer />
 </div>
+
+<!-- Floating Mobile CTA Button -->
+<button
+  onclick={scrollToPetition}
+  class="fixed bottom-6 right-6 md:hidden z-40 bg-emerald-600 text-white px-5 py-3 rounded-full shadow-lg hover:bg-emerald-700 transition-all duration-200 flex items-center gap-2 animate-bounce"
+  aria-label="Sign the petition"
+>
+  <span class="font-semibold text-base">Yes!</span>
+  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+  </svg>
+</button>
 
 <!-- Image Modal/Lightbox -->
 {#if imageModalOpen}
